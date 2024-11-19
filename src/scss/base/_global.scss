@@ -1,0 +1,17 @@
+// Need to import mixins and variables from here, otherwise it won't work from main.scss (need further investigation).
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+body {
+  font-family: $sans-serif;
+}
+
+.container {
+  max-width: 90%;
+  margin-inline: auto;
+  padding: 1rem;
+
+  @include xxl {
+    max-width: 1280px;
+  }
+}

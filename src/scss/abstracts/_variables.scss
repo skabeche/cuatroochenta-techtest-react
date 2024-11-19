@@ -2,6 +2,9 @@
 $primary-color: #e839f6;
 $secondary-color: #61d8dc;
 
+// Fonts.
+$sans-serif: "Open Sans", sans-serif;
+
 // Breakpoints.
 $breakpoints: (
   "xs": 480px,
@@ -9,5 +12,5 @@ $breakpoints: (
   "md": 768px,
   "lg": 1024px,
   "xl": 1280px,
-  "2xl": 1536px,
+  "xxl": 1536px,
 );

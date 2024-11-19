@@ -59,7 +59,7 @@
 }
 
 @mixin xxl {
-  @media (min-width: map.get($breakpoints, "2xl")) {
+  @media (min-width: map.get($breakpoints, "xxl")) {
     @content;
   }
 }
