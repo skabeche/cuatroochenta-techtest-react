@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom"
 export default function GuestLayout() {
 
   return (
-    <Outlet />
+    <div className="guest-layout">
+      <Outlet />
+    </div>
   )
 }

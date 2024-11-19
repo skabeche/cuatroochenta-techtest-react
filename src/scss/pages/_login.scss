@@ -1,0 +1,21 @@
+// Need to import mixins from here, otherwise it won't work from main.scss (need further investigation).
+@use "../abstracts/mixins" as *;
+
+.login {
+  margin: 1rem;
+  margin-inline: auto;
+  padding: 3rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  @include lg {
+    width: 40%;
+  }
+}
