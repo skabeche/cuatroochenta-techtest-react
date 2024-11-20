@@ -6,6 +6,7 @@ import GuestLayout from "@layouts/GuestLayout";
 import AuthLayout from "@layouts/AuthLayout";
 import Login from "@pages/Login";
 import Dashboard from "@pages/Dashboard";
+import Contact from "@pages/Contact";
 
 const routes = [
   // {
@@ -36,6 +37,10 @@ const routes = [
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },

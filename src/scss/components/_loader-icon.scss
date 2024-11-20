@@ -1,0 +1,12 @@
+.loader-icon {
+  display: inline-flex;
+  gap: 0.5rem;
+  height: 1.2rem;
+
+  circle {
+    opacity: 0.25;
+  }
+  path {
+    opacity: 0.75;
+  }
+}

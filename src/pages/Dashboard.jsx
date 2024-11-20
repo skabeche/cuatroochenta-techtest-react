@@ -5,7 +5,7 @@ import { useGetWeatherByCity } from "@hooks/useGetWeatherByCity"
 
 export default function Dashboard() {
   const [city, setCity] = useState('');
-  const { weatherByCity, getWeatherByCity, loading, error } = useGetWeatherByCity(city);
+  const { weatherByCity, getWeatherByCity, isLoading, error } = useGetWeatherByCity(city);
   const cities = ['Belfast', 'London', 'Valencia'];
 
   const weatherType = (() => {
@@ -22,8 +22,8 @@ export default function Dashboard() {
     return (
       <nav className="cities">
         {cities.map((city) => (
-          <Button key={city} onClick={() => handleClick(city)} className="btn-primary" processing={loading}>
-            {loading && <span>Loading...</span>}
+          <Button key={city} onClick={() => handleClick(city)} className="btn-primary" processing={isLoading}>
+            {isLoading && <span>Loading...</span>}
             {city}
           </Button>
         ))}

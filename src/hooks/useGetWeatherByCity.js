@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 export function useGetWeatherByCity(city = '') {
   const [weatherByCity, setWeatherByCity] = useState(null)
-  const [loading, setLoading] = useState(false);
+  const [isloading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export function useGetWeatherByCity(city = '') {
 
   const getWeatherByCity = async () => {
     console.log(city)
-    setLoading(true);
+    setIsLoading(true);
     setError(null);
 
     try {
@@ -40,9 +40,9 @@ export function useGetWeatherByCity(city = '') {
     } catch (error) {
       setError(error.message);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
-  return { weatherByCity: weatherByCity, getWeatherByCity, loading, error };
+  return { weatherByCity: weatherByCity, getWeatherByCity, isloading, error };
 }

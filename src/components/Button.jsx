@@ -1,10 +1,10 @@
-export default function Button({ type = 'submit', className = '', processing, children, onClick }) {
+export default function Button({ type = 'submit', className = '', disabled = false, children, onClick }) {
   return (
     <button
       type={type}
       onClick={onClick}
       className={className}
-      disabled={processing}
+      disabled={disabled}
     >
       {children}
     </button>
