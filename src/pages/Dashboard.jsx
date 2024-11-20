@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "@components/Button";
+import Sidebar from "@/components/Sidebar";
 import { useGetWeatherByCity } from "@hooks/useGetWeatherByCity"
 
 export default function Dashboard() {
@@ -8,8 +9,8 @@ export default function Dashboard() {
   const cities = ['Belfast', 'London', 'Valencia'];
 
   const weatherType = (() => {
-    if (weatherByCity?.temperature <= 10) return 'cold';
-    if (weatherByCity?.temperature >= 25) return 'hot';
+    if (weatherByCity?.main?.tempCurrent <= 10) return 'cold';
+    if (weatherByCity?.main?.tempCurrent >= 25) return 'hot';
     return 'normal';
   })();
 
@@ -32,24 +33,27 @@ export default function Dashboard() {
 
   return (
     <div className="page-dashboard">
-      <header className={`${weatherType}`}>
+      <Sidebar><NavCities /></Sidebar>
+      <section className={`${weatherType}`}>
         <div className="content">
           {city === '' ? (
-            <h2>Please select a city</h2>
+            <h2>Please, open the menu and select a city</h2>
           ) : (
             <div className="weather">
-              <div className="type">{weatherByCity?.type}</div>
+              <div className="icon">
+                <img src={`http://openweathermap.org/img/wn/${weatherByCity?.weather?.icon}@2x.png`} alt={weatherByCity?.weather?.description} />
+              </div>
+              <div className="description">{weatherByCity?.weather?.description}</div>
               <div className="city">{weatherByCity?.city}</div>
-              <div className="temperature">{weatherByCity?.temperature}º</div>
+              <div className="temperature-current">{weatherByCity?.main?.tempCurrent}º</div>
+              <div className="temperature-range">
+                <div className="temperature-min">Min. {weatherByCity?.main?.tempMin}º</div>
+                <div className="temperature-max">Max. {weatherByCity?.main?.tempMax}º</div>
+              </div>
             </div>
           )}
         </div>
-      </header>
-      <div className="container">
-        <h1>Dashboard</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <NavCities />
-      </div>
-    </div>
+      </section >
+    </div >
   )
 }

@@ -26,8 +26,15 @@ export function useGetWeatherByCity(city = '') {
       const mappedData = {
         id: data.id,
         city: data.name,
-        type: data.weather[0].main,
-        temperature: data.main.temp,
+        weather: {
+          description: data.weather[0].description,
+          icon: data.weather[0].icon,
+        },
+        main: {
+          tempCurrent: data.main.temp,
+          tempMin: data.main.temp_min,
+          tempMax: data.main.temp_max,
+        },
       };
       setWeatherByCity(mappedData)
     } catch (error) {

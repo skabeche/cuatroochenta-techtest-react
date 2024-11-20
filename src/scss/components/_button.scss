@@ -1,6 +1,10 @@
 // Need to import mixins from here, otherwise it won't work from main.scss (need further investigation).
 @use "../abstracts/mixins" as *;
 
+button {
+  @include btn;
+}
+
 .btn-primary {
   @include btn-primary;
 }

@@ -1,4 +1,4 @@
-header {
+section {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -42,9 +42,10 @@ header {
       align-items: center;
       gap: 1rem;
 
-      .type {
+      .description {
         font-size: 1.5rem;
         font-weight: 700;
+        text-transform: capitalize;
       }
 
       .city {
@@ -52,9 +53,14 @@ header {
         font-weight: 400;
       }
 
-      .temperature {
-        font-size: 5rem;
+      .temperature-current {
+        font-size: 6rem;
         font-weight: 800;
+      }
+
+      .temperature-range {
+        display: flex;
+        gap: 2rem;
       }
     }
   }
@@ -62,5 +68,7 @@ header {
 
 .cities {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   gap: 1rem;
 }
