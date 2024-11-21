@@ -1,0 +1,42 @@
+{
+  "languages": {
+    "code": "en",
+    "es": "Spanish",
+    "en": "English"
+  },
+  "pages": {
+    "login": {
+      "title": "Login",
+      "text": "Use following credentials for testing purposes:"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "text": "Please, open the menu and select a city"
+    },
+    "contact": {
+      "title": "Get in touch"
+    }
+  },
+  "forms": {
+    "label": {
+      "username": "Username",
+      "password": "Password",
+      "name": "Name",
+      "email": "Email",
+      "city": "City",
+      "telephone": "Telephone",
+      "dateOfBirth": "Date of Birth"
+    },
+    "button": {
+      "login": "Login",
+      "logout": "Logout",
+      "send": "Send"
+    }
+  },
+  "widgets": {
+    "weather": {
+      "tempMin": "Min.",
+      "tempMax": "Max."
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "languages": {
+    "code": "es",
+    "es": "Español",
+    "en": "Inglés"
+  },
+  "pages": {
+    "login": {
+      "title": "Iniciar sesión",
+      "text": "Utliza las siguientes credenciales para pruebas:"
+    },
+    "dashboard": {
+      "title": "Inicio",
+      "text": "Por favor, abre el menu y selecciona una ciudad"
+    },
+    "contact": {
+      "title": "Contacto"
+    }
+  },
+  "forms": {
+    "label": {
+      "username": "Usuario",
+      "password": "Contraseña",
+      "name": "Nombre",
+      "email": "Email",
+      "city": "Ciudad",
+      "telephone": "Teléfono",
+      "dateOfBirth": "Fecha de nacimiento"
+    },
+    "button": {
+      "login": "Iniciar sesión",
+      "logout": "Cerrar sesión",
+      "send": "Enviar"
+    }
+  },
+  "widgets": {
+    "weather": {
+      "tempMin": "Min.",
+      "tempMax": "Máx."
+    }
+  }
+}

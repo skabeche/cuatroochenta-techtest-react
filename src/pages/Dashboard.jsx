@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Button from "@components/Button";
 import Sidebar from "@/components/Sidebar";
 import { useGetWeatherByCity } from "@hooks/useGetWeatherByCity"
 
 export default function Dashboard() {
+  const { t, i18n } = useTranslation(['translation']);
   const [city, setCity] = useState('');
   const { weatherByCity, getWeatherByCity, isLoading, error } = useGetWeatherByCity(city);
   const cities = ['Belfast', 'London', 'Valencia'];
@@ -37,7 +39,7 @@ export default function Dashboard() {
       <section className={`${weatherType}`}>
         <div className="content">
           {city === '' ? (
-            <h2>Please, open the menu and select a city</h2>
+            <h2>{t("translation:pages.dashboard.text")}</h2>
           ) : (
             <div className="weather">
               <div className="icon">
