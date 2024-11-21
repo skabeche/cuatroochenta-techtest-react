@@ -1,20 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 
-// import App from "./App";
-import Error from "@pages/Error";
-import GuestLayout from "@layouts/GuestLayout";
-import AuthLayout from "@layouts/AuthLayout";
-import Login from "@pages/Login";
-import Dashboard from "@pages/Dashboard";
-import Contact from "@pages/Contact";
+import Error from "@/pages/Error";
+import GuestLayout from "@/layouts/GuestLayout";
+import AuthLayout from "@/layouts/AuthLayout";
+import Login from "@/pages/Login";
+import Dashboard from "@/pages/Dashboard";
+import Contact from "@/pages/Contact";
+import PrivateRoute from "@/components/PrivateRoute";
 
 const routes = [
-  // {
-  //   path: '/',
-  // element: <App />,
-  //   errorElement: <Error />,
-  // },
-
   {
     element: <GuestLayout />,
     errorElement: <Error />,
@@ -31,7 +25,7 @@ const routes = [
     ],
   },
   {
-    element: <AuthLayout />,
+    element: <PrivateRoute><AuthLayout /></PrivateRoute>,
     errorElement: <Error />,
     children: [
       {

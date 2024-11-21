@@ -1,7 +1,7 @@
 // Need to import mixins from here, otherwise it won't work from main.scss (need further investigation).
 @use "../abstracts/mixins" as *;
 
-.login {
+.page-login {
   margin: 1rem;
   margin-inline: auto;
   padding: 3rem;
