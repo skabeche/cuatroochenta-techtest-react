@@ -17,7 +17,7 @@ export function useGetWeatherByCity(city = '') {
     setError(null);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}?q=${city}&units=metric&appid=${import.meta.env.VITE_API_KEY}`);
+      const response = await fetch(`${import.meta.env.VITE_API_WEATHER_BASE_URL}?q=${city}&units=metric&appid=${import.meta.env.VITE_API_WEATHER_KEY}`);
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
       }
