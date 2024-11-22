@@ -2,20 +2,47 @@
 @use "../abstracts/mixins" as *;
 
 .page-login {
-  margin: 1rem;
-  margin-inline: auto;
-  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
   background-color: #fff;
-  border-radius: 0.5rem;
 
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: 0.8rem;
+    width: 100%;
+    margin-block: 2rem;
+
+    > div {
+      width: 100%;
+    }
   }
 
-  @include lg {
-    width: 40%;
+  .help {
+    font-size: 0.9rem;
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+      li {
+        margin-block: 0.5rem;
+      }
+    }
+  }
+  
+  @include md {
+    width: 65%;
+    height: 100%;
+    padding: 5rem;
+  }
+  @include xl {
+    width: 50%;
+  }
+  @include xxl {
+    width: 30%;
   }
 }

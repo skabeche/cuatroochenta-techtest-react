@@ -13,7 +13,6 @@ export function useGetWeatherByCity(city = '') {
   }, [city])
 
   const getWeatherByCity = async () => {
-    console.log(city)
     setIsLoading(true);
     setError(null);
 

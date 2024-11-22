@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "@components/Button";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/partials/Sidebar";
 import { useGetWeatherByCity } from "@hooks/useGetWeatherByCity"
 
 export default function Dashboard() {
@@ -35,7 +35,9 @@ export default function Dashboard() {
 
   return (
     <div className="page-dashboard">
-      <Sidebar><NavCities /></Sidebar>
+      <Sidebar>
+        <NavCities />
+      </Sidebar>
       <section className={`${weatherType}`}>
         <div className="content">
           {city === '' ? (
@@ -43,14 +45,14 @@ export default function Dashboard() {
           ) : (
             <div className="weather">
               <div className="icon">
-                <img src={`http://openweathermap.org/img/wn/${weatherByCity?.weather?.icon}@2x.png`} alt={weatherByCity?.weather?.description} />
+                <img src={`http://openweathermap.org/img/wn/${weatherByCity?.weather?.icon}@4x.png`} alt={weatherByCity?.weather?.description} />
               </div>
               <div className="description">{weatherByCity?.weather?.description}</div>
               <div className="city">{weatherByCity?.city}</div>
               <div className="temperature-current">{weatherByCity?.main?.tempCurrent}º</div>
               <div className="temperature-range">
-                <div className="temperature-min">Min. {weatherByCity?.main?.tempMin}º</div>
-                <div className="temperature-max">Max. {weatherByCity?.main?.tempMax}º</div>
+                <div className="temperature-min">{t("widgets.weather.tempMin")} {weatherByCity?.main?.tempMin}º</div>
+                <div className="temperature-max">{t("widgets.weather.tempMax")} {weatherByCity?.main?.tempMax}º</div>
               </div>
             </div>
           )}

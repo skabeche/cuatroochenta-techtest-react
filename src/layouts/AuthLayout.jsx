@@ -1,12 +1,22 @@
 import { Outlet } from "react-router-dom"
-import LangSwitcher from "@/components/LangSwitcher"
+import TopBar from "@/partials/TopBar"
+import LangSwitcher from "@/partials/LangSwitcher"
+import Button from "@/components/Button"
 
 export default function AuthLayout() {
-
   return (
     <div className="auth-layout">
-      <LangSwitcher />
-      <Outlet />
+      <header>
+        <TopBar>
+          <nav>
+            <Button>Logout</Button>
+            <LangSwitcher />
+          </nav>
+        </TopBar>
+      </header>
+      <main>
+        <Outlet />
+      </main>
     </div>
   )
 }

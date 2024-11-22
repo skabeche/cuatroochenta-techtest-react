@@ -1,10 +1,4 @@
-// Need to import variables from here, otherwise it won't work from main.scss (need further investigation).
-@use "../abstracts/variables" as *;
-
 .guest-layout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  background: linear-gradient(45deg, $secondary-color 0%, $primary-color 100%);
+  background: url("/images/bg-mountains.jpg") no-repeat left/cover;
 }

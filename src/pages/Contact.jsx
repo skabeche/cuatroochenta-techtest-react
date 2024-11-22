@@ -4,7 +4,7 @@ import Label from "@/components/Label";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import LoaderIcon from "@/components/LoaderIcon";
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/partials/Sidebar";
 
 // import axios from "axios";
 

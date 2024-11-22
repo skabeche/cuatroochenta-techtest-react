@@ -6,7 +6,7 @@
   },
   "pages": {
     "login": {
-      "title": "Login",
+      "title": "Welcome to Weather App",
       "text": "Use following credentials for testing purposes:"
     },
     "dashboard": {

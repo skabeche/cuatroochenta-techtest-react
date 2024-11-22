@@ -5,13 +5,12 @@
 // Buttons.
 @mixin btn {
   display: inline-flex;
-  border: none;
   padding: 0.7rem 1rem;
+  border: none;
   border-radius: 0.4rem;
-  color: #fff;
-  text-transform: uppercase;
-  transition: all 0.2s linear;
   background-color: transparent;
+  font-family: $font-secondary;
+  transition: all 0.2s linear;
   &:hover {
     cursor: pointer;
     opacity: 0.8;
@@ -19,10 +18,12 @@
 }
 
 @mixin btn-primary {
+  color: #fff;
   background-color: $primary-color;
 }
 
 @mixin btn-secondary {
+  color: #fff;
   background-color: $secondary-color;
 }
 

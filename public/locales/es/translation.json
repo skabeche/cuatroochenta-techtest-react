@@ -6,12 +6,12 @@
   },
   "pages": {
     "login": {
-      "title": "Iniciar sesión",
-      "text": "Utliza las siguientes credenciales para pruebas:"
+      "title": "Bienvenido a Weather App",
+      "text": "Utiliza las siguientes credenciales para pruebas:"
     },
     "dashboard": {
       "title": "Inicio",
-      "text": "Por favor, abre el menu y selecciona una ciudad"
+      "text": "Por favor, abre el menú y selecciona una ciudad"
     },
     "contact": {
       "title": "Contacto"

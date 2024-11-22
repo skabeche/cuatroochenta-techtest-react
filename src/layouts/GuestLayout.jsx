@@ -1,12 +1,18 @@
 import { Outlet } from "react-router-dom"
-import LangSwitcher from "@/components/LangSwitcher"
+import TopBar from "@/partials/TopBar"
+import LangSwitcher from "@/partials/LangSwitcher"
 
 export default function GuestLayout() {
-
   return (
     <div className="guest-layout">
-      <LangSwitcher />
-      <Outlet />
+      <header>
+        <TopBar>
+          <LangSwitcher />
+        </TopBar>
+      </header>
+      <main>
+        <Outlet />
+      </main>
     </div>
   )
 }
