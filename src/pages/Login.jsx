@@ -1,29 +1,30 @@
-import { useState } from "react"
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Logo } from "@/components/Logo";
-import Button from "@/components/Button"
-import Label from "@/components/Label"
-import LoaderIcon from "@/components/LoaderIcon";
+import Button from "@/components/Button";
+import Label from "@/components/Label";
+import Input from "@/components/Input";
 import { SunMedium } from "lucide-react";
 import useAuth from "@/hooks/useAuth";
 
 export default function Login() {
   const { t, i18n } = useTranslation();
-  const { login, isLoading } = useAuth();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+  });
+  const { login, isLoading, message } = useAuth();
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setUsername("emilys");
-    setPassword("emilyspass");
 
     try {
-      await login(username, password);
+      await login(formData.username, formData.password);
     } catch (error) {
-      console.log(error.message);
-      setMessage(error.message);
+      // console.log(error.message);
     }
   }
 
@@ -37,14 +38,14 @@ export default function Login() {
         <form onSubmit={handleSubmit}>
           <div>
             <Label htmlFor="username">{t("forms.label.username")}</Label>
-            <input id="username" name="username" type="text" />
+            <Input id="username" name="username" type="text" handleChange={handleChange} required />
           </div>
           <div>
             <Label htmlFor="password">{t("forms.label.password")}</Label>
-            <input id="password" name="password" type="password" />
+            <Input id="password" name="password" type="password" handleChange={handleChange} required />
           </div>
-          <Button disabled={isLoading} className="btn-primary">
-            {isLoading ? <LoaderIcon>Validating...</LoaderIcon> : t("forms.button.login")}
+          <Button isLoading={isLoading} className="btn-primary">
+            {isLoading ? t("forms.button.validating") : t("forms.button.login")}
           </Button>
           <div className="message">{message}</div>
         </form>

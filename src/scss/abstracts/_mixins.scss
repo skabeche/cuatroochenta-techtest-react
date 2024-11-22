@@ -5,6 +5,8 @@
 // Buttons.
 @mixin btn {
   display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   padding: 0.7rem 1rem;
   border: none;
   border-radius: 0.4rem;

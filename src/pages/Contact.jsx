@@ -3,10 +3,7 @@ import { useTranslation } from "react-i18next";
 import Label from "@/components/Label";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
-import LoaderIcon from "@/components/LoaderIcon";
 import Sidebar from "@/partials/Sidebar";
-
-// import axios from "axios";
 
 export default function Contact() {
   const { t, i18n } = useTranslation();
@@ -71,27 +68,27 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="">
               <Label htmlFor="name">{t("forms.label.name")}</Label>
-              <Input name="name" handleChange={handleChange} required />
+              <Input name="name" onChange={handleChange} required />
             </div>
             <div className="">
               <Label htmlFor="email">{t("forms.label.email")}</Label>
-              <Input type="email" name="email" handleChange={handleChange} required />
+              <Input type="email" name="email" onChange={handleChange} required />
             </div>
             <div className="">
               <Label htmlFor="city">{t("forms.label.city")}</Label>
-              <Input name="city" handleChange={handleChange} required />
+              <Input name="city" onChange={handleChange} required />
             </div>
             <div className="">
               <Label htmlFor="telephone">{t("forms.label.telephone")}</Label>
-              <Input name="telephone" handleChange={handleChange} />
+              <Input name="telephone" onChange={handleChange} />
             </div>
             <div className="">
               <Label htmlFor="dateOfBirth">{t("forms.label.dateOfBirth")}</Label>
-              <Input type="date" name="dateOfBirth" handleChange={handleChange} />
+              <Input type="date" name="dateOfBirth" onChange={handleChange} />
             </div>
           </div>
-          <Button disabled={isLoading} className="btn-primary">
-            {isLoading ? <LoaderIcon>Sending...</LoaderIcon> : t("forms.button.send")}
+          <Button isLoading={isLoading} className="btn-primary">
+            {isLoading ? t("forms.button.sending") : t("forms.button.send")}
           </Button>
           <div className="message">{message}</div>
         </form>

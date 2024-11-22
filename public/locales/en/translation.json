@@ -30,7 +30,10 @@
     "button": {
       "login": "Login",
       "logout": "Logout",
-      "send": "Send"
+      "send": "Send",
+      "sending": "Sending...",
+      "validating": "Validating...",
+      "loading": "Loading..."
     }
   },
   "widgets": {
