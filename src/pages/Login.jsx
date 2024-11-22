@@ -4,6 +4,7 @@ import { Logo } from "@/components/Logo";
 import Button from "@/components/Button"
 import Label from "@/components/Label"
 import LoaderIcon from "@/components/LoaderIcon";
+import { SunMedium } from "lucide-react";
 import useAuth from "@/hooks/useAuth";
 
 export default function Login() {
@@ -27,9 +28,11 @@ export default function Login() {
   }
 
   return (
-    <div className="page-login">
+    <div className="login">
       <div className="wrapper">
-        <Logo />
+        <div className="icon">
+          <SunMedium />
+        </div>
         <h2>{t("pages.login.title")}</h2>
         <form onSubmit={handleSubmit}>
           <div>

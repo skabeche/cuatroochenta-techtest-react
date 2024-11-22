@@ -1,8 +1,9 @@
 import { Outlet } from "react-router-dom"
+import PageCssClassManager from "@/components/PageCssClassManager"
 import TopBar from "@/partials/TopBar"
 import LangSwitcher from "@/partials/LangSwitcher"
 import Button from "@/components/Button"
-import PageCssClassManager from "@/components/PageCssClassManager"
+import { Logo } from "@/components/Logo"
 
 export default function AuthLayout() {
   return (
@@ -11,6 +12,7 @@ export default function AuthLayout() {
     <div className="auth-layout">
       <header>
         <TopBar>
+          <Logo />
           <nav>
             <Button>Logout</Button>
             <LangSwitcher />

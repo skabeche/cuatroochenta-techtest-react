@@ -63,8 +63,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="page-contact">
-      {/* <Sidebar /> */}
+    <div className="contact">
+      <Sidebar />
       <section className="container">
         <h2>{t("pages.contact.title")}</h2>
         <form onSubmit={handleSubmit} id="contact">

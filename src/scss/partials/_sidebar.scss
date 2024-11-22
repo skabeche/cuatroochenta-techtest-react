@@ -4,32 +4,29 @@
 
 aside {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
-  // width: 100%;
-  // height: 100%;
-  padding-right: 3rem;
+  width: 100%;
+
 
   z-index: 60;
   display: flex;
   flex-direction: column;
 
   .header {
-    position: relative;
+    position: absolute;
+    right: 0;
+    top: 0;
     z-index: 70;
     display: flex;
     align-items: center;
-    // color: #fff;
-    gap: 1rem;
+    justify-content: end;
+    margin: 1.5rem;
+    margin-right: 2rem;
+
     .toggler {
-      width: 40px;
-      height: 40px;
-      padding: 0.5rem;
-    }
-    h1 {
-      margin: 0;
-      font-size: 1.2rem;
-      font-weight: 400;
+      width: 1.5rem;
+      padding: 0;
     }
   }
 
@@ -38,12 +35,11 @@ aside {
     z-index: 50;
     left: 0;
     top: 0;
-    padding-block: 3rem;
-    padding-inline: 2rem;
+    padding: 5rem 2rem;
     width: 100%;
     height: 100dvh;
     background-color: #fff;
-    transition: all 0.3s ease-out;
+    transition: all 0.2s ease-out;
 
     nav {
       color: #000;
@@ -73,7 +69,6 @@ aside {
         &:hover {
           color: $primary-color;
         }
-
       }
     }
   }
@@ -91,11 +86,14 @@ aside {
       color: #fff;
     }
     .wrapper {
-      transform: translateX(-100%);
+      transform: translateX(100%);
     }
   }
 
-  @include lg {
+  @include md {
+    width: 35%;
+  }
+  @include xxl {
     width: 20%;
   }
 }

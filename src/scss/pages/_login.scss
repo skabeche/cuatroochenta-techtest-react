@@ -1,48 +1,56 @@
-// Need to import mixins from here, otherwise it won't work from main.scss (need further investigation).
+// Need to import variables and mixins from here, otherwise it won't work from main.scss (need further investigation).
+@use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
 .page-login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 2rem;
-  background-color: #fff;
-
-  form {
+  .login {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: flex-start;
-    gap: 0.8rem;
     width: 100%;
-    margin-block: 2rem;
+    padding: 2rem;
+    background-color: #fff;
 
-    > div {
-      width: 100%;
+    .icon {
+      width: 4rem;
+      color: $primary-color;
     }
-  }
 
-  .help {
-    font-size: 0.9rem;
-    ul {
-      list-style: none;
-      padding-left: 1rem;
-      li {
-        margin-block: 0.5rem;
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0.8rem;
+      width: 100%;
+      margin-block: 2rem;
+
+      > div {
+        width: 100%;
       }
     }
-  }
-  
-  @include md {
-    width: 65%;
-    height: 100%;
-    padding: 5rem;
-  }
-  @include xl {
-    width: 50%;
-  }
-  @include xxl {
-    width: 35%;
+
+    .help {
+      font-size: 0.9rem;
+      ul {
+        list-style: none;
+        padding-left: 1rem;
+        li {
+          margin-block: 0.5rem;
+        }
+      }
+    }
+
+    @include md {
+      width: 65%;
+      height: 100%;
+      padding: 5rem;
+    }
+    @include xl {
+      width: 50%;
+    }
+    @include xxl {
+      width: 35%;
+    }
   }
 }

@@ -21,7 +21,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="page-dashboard">
+    <div className="dashboard">
       <Sidebar>
         <NavCities cities={cities} isLoading={isLoading} handleClick={handleClick} />
       </Sidebar>

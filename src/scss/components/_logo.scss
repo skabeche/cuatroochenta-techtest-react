@@ -2,6 +2,16 @@
 @use "../abstracts/variables" as *;
 
 .logo-app {
-  width: 4rem;
-  color: $primary-color;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: $font-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+
+  svg {
+    width: 2rem;
+  }
 }
