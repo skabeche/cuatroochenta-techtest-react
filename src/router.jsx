@@ -16,11 +16,13 @@ const routes = [
       {
         path: "/",
         element: <Login />,
+        handle: { pageCssClass: "page-login" },
 
       },
       {
         path: "/login",
         element: <Login />,
+        handle: { pageCssClass: "page-login" },
       },
     ],
   },
@@ -31,10 +33,12 @@ const routes = [
       {
         path: "/dashboard",
         element: <Dashboard />,
+        handle: { pageCssClass: "page-dashboard" },
       },
       {
         path: "/contact",
         element: <Contact />,
+        handle: { pageCssClass: "page-contact" },
       },
     ],
   },
