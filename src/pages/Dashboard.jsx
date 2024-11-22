@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Button from "@components/Button";
 import Sidebar from "@/partials/Sidebar";
-import { useGetWeatherByCity } from "@hooks/useGetWeatherByCity"
+import NavCities from "@/partials/NavCities";
+import { useGetWeatherByCity } from "@/hooks/useGetWeatherByCity"
 
 export default function Dashboard() {
   const { t, i18n } = useTranslation(['translation']);
   const [city, setCity] = useState('');
   const { weatherByCity, getWeatherByCity, isLoading, error } = useGetWeatherByCity(city);
-  const cities = ['Belfast', 'London', 'Valencia'];
+  const cities = ['Belfast', 'Valencia', 'Doha', 'Reykjavik'];
 
   const weatherType = (() => {
     if (weatherByCity?.main?.tempCurrent <= 10) return 'cold';
@@ -20,28 +20,15 @@ export default function Dashboard() {
     setCity(city);
   }
 
-  const NavCities = () => {
-    return (
-      <nav className="cities">
-        {cities.map((city) => (
-          <Button key={city} onClick={() => handleClick(city)} className="btn-primary" processing={isLoading}>
-            {isLoading && <span>Loading...</span>}
-            {city}
-          </Button>
-        ))}
-      </nav>
-    )
-  }
-
   return (
     <div className="page-dashboard">
       <Sidebar>
-        <NavCities />
+        <NavCities cities={cities} isLoading={isLoading} handleClick={handleClick} />
       </Sidebar>
       <section className={`${weatherType}`}>
         <div className="content">
           {city === '' ? (
-            <h2>{t("translation:pages.dashboard.text")}</h2>
+            <p>{t("translation:pages.dashboard.text")}</p>
           ) : (
             <div className="weather">
               <div className="icon">

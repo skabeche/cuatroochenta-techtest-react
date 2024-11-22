@@ -1,44 +1,97 @@
-// Need to import mixins from here, otherwise it won't work from main.scss (need further investigation).
+// Need to import variables and mixins from here, otherwise it won't work from main.scss (need further investigation).
+@use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
 aside {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
+  padding-right: 3rem;
 
   z-index: 60;
   display: flex;
   flex-direction: column;
-  .toggler {
+
+  .header {
     position: relative;
     z-index: 70;
-    width: 40px;
-    height: 40px;
-    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    // color: #fff;
+    gap: 1rem;
+    .toggler {
+      width: 40px;
+      height: 40px;
+      padding: 0.5rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
   }
 
   .wrapper {
     position: absolute;
-    z-index: 60;
+    z-index: 50;
     left: 0;
     top: 0;
-    padding-top: 50px;
+    padding-block: 3rem;
+    padding-inline: 2rem;
     width: 100%;
-    height: 100%;
+    height: 100dvh;
     background-color: #fff;
     transition: all 0.3s ease-out;
 
-    &.open {
+    nav {
+      color: #000;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-inline: 0;
+        list-style: none;
+      }
+
+      svg {
+        width: auto;
+      }
+
+      a,
+      span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #000;
+        text-decoration: none;
+      }
+
+      a {
+        &:hover {
+          color: $primary-color;
+        }
+
+      }
+    }
+  }
+
+  &.open {
+    .header {
+      color: #000;
+    }
+    .wrapper {
       transform: translateX(0);
     }
-    &.closed {
-      transform: translateX(-100%);
+  }
+  &.closed {
+    .header {
+      color: #fff;
     }
-    a {
-      color: #000;
-      text-decoration: none;
+    .wrapper {
+      transform: translateX(-100%);
     }
   }
 

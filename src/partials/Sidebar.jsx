@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import NavIcon from "@/components/NavIcon";
+import { House } from 'lucide-react';
+import { MessageSquareMore } from 'lucide-react';
 
 export default function Sidebar({ children }) {
 
@@ -10,9 +12,9 @@ export default function Sidebar({ children }) {
   };
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
 
-      <div>
+      <div className="header">
         <button
           id="toggler"
           aria-label="Open menu"
@@ -21,11 +23,25 @@ export default function Sidebar({ children }) {
         >
           <NavIcon isOpen={isOpen} />
         </button>
+        <h1>Weather App</h1>
       </div>
 
-      <div className={`wrapper ${isOpen ? 'open' : 'closed'}`}>
+      <div className="wrapper">
         <nav className="nav-main">
-          <a href="/contact">Contact</a>
+          <ul>
+            <li>
+              <a href="/contact" accessKey="0">
+                <House size={20} strokeWidth={1.5} />
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="/contact" accessKey="1">
+                <MessageSquareMore size={20} strokeWidth={1.5} />
+                Contact
+              </a>
+            </li>
+          </ul>
         </nav>
 
         {children}

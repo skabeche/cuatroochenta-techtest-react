@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useTranslation } from "react-i18next";
 import { Logo } from "@/components/Logo";
-import Button from "@components/Button"
-import Label from "@components/Label"
+import Button from "@/components/Button"
+import Label from "@/components/Label"
 import LoaderIcon from "@/components/LoaderIcon";
 import useAuth from "@/hooks/useAuth";
 
