@@ -15,6 +15,16 @@
   &.open {
     .bar {
       background-color: #000;
+      transform-origin: 10%;
+    }
+    .bar-top {
+      transform: rotate(45deg);
+    }
+    .bar-middle {
+      opacity: 0;
+    }
+    .bar-bottom {
+      transform: rotate(-45deg);
     }
   }
   &.closed {

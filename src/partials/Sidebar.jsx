@@ -23,10 +23,12 @@ export default function Sidebar({ children }) {
         </button>
       </div>
 
-      <div className="wrapper">
-        <NavPrimary />
+      <div className="underlay" onClick={handleClick}>
+        <div className="wrapper">
+          <NavPrimary />
 
-        {children}
+          {children}
+        </div>
       </div>
     </aside>
   )
