@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import Button from "@/components/Button";
 import Label from "@/components/Label";
 import Input from "@/components/Input";
@@ -13,6 +15,7 @@ export default function Login() {
     password: '',
   });
   const { login, isLoading, message } = useAuth();
+  const loginRef = useRef(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,8 +31,19 @@ export default function Login() {
     }
   }
 
+  useGSAP(() => {
+    gsap.from(loginRef.current,
+      {
+        opacity: 0,
+        xPercent: -50,
+        duration: .6,
+        ease: "power3"
+      }
+    );
+  }, []);
+
   return (
-    <div className="login">
+    <div ref={loginRef} className="login">
       <div className="wrapper">
         <div className="icon">
           <SunMedium />

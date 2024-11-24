@@ -8,7 +8,7 @@ export default function Button({ type = 'submit', className = '', isLoading = fa
       className={className}
       disabled={isLoading ? isLoading : disabled}
     >
-      {isLoading ? <LoaderIcon /> : null}
+      {isLoading && <LoaderIcon />}
       {children}
     </button>
   );

@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { useTranslation } from "react-i18next";
 import Sidebar from "@/partials/Sidebar";
 import NavCities from "@/partials/NavCities";
+import LoaderOverlay from "@/components/LoaderOverlay";
 import { useGetWeatherByCity } from "@/hooks/useGetWeatherByCity"
 
 export default function Dashboard() {
   const { t, i18n } = useTranslation(['translation']);
   const [city, setCity] = useState('');
+  const [ciyAnim, setCityAnim] = useState('');
+  const weatherRef = useRef(null);
   const { weatherByCity, getWeatherByCity, isLoading, error } = useGetWeatherByCity(city);
   const cities = ['Belfast', 'Valencia', 'Doha', 'Reykjavik'];
 
@@ -17,20 +22,47 @@ export default function Dashboard() {
   })();
 
   const handleClick = (city) => {
-    setCity(city);
+    setCityAnim(city);
   }
+
+  useGSAP(() => {
+    if (ciyAnim === '') return
+
+    gsap.to(weatherRef.current,
+      {
+        opacity: 0,
+        yPercent: 4,
+        duration: .4,
+        ease: "power3.out",
+        onComplete: () => setCity(ciyAnim)
+      },
+    );
+  }, [ciyAnim]);
+
+  useGSAP(() => {
+    if (weatherByCity === null) return
+
+    gsap.to(weatherRef.current,
+      {
+        opacity: 1,
+        yPercent: 0,
+        duration: .4,
+        ease: "power3.out",
+      },
+    );
+  }, [weatherByCity]);
 
   return (
     <div className="dashboard">
       <Sidebar>
         <NavCities cities={cities} isLoading={isLoading} handleClick={handleClick} />
       </Sidebar>
-      <section className={`${weatherType}`}>
+      <section ref={weatherRef} className={`weather ${weatherType}`}>
         <div className="content">
           {city === '' ? (
             <p>{t("translation:pages.dashboard.text")}</p>
           ) : (
-            <div className="weather">
+            <div className="info">
               <div className="icon">
                 <img src={`http://openweathermap.org/img/wn/${weatherByCity?.weather?.icon}@4x.png`} alt={weatherByCity?.weather?.description} />
               </div>
@@ -44,7 +76,14 @@ export default function Dashboard() {
             </div>
           )}
         </div>
-      </section >
-    </div >
+      </section>
+      {/* <div className={`loader-overlay ${isLoading ? 'open' : 'closed'}`}><span className="loader">Loading weather</span></div> */}
+      <LoaderOverlay isLoading={isLoading}>Loading weather</LoaderOverlay>
+      {/* {isLoading &&  (
+        
+        <div className={`loading-overlay ${isLoading ? 'open' : 'closed'}`}><div>Loading weather</div></div>
+        
+      )} */}
+    </div>
   )
 }

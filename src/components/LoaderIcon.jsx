@@ -1,4 +1,4 @@
-export default function Loader({ children }) {
+export default function LoaderIcon({ children }) {
   return (
     <span className="loader-icon">
       <svg className="anim-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

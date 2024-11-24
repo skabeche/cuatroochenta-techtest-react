@@ -2,6 +2,8 @@
 @use "../abstracts/variables" as *;
 
 .page-dashboard {
+  overflow: hidden;
+  background: url("/images/bg-couple-stars.jpg") no-repeat center/cover;
 
   .top-bar {
     position: absolute;
@@ -17,7 +19,7 @@
     }
   }
 
-  section {
+  .weather {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -60,7 +62,7 @@
         font-weight: 400;
       }
 
-      .weather {
+      .info {
         display: flex;
         flex-direction: column;
         align-items: center;
