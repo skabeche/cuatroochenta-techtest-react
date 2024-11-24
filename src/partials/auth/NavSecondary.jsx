@@ -7,8 +7,14 @@ export default function NavSecondary() {
 
   return (
     <nav className="nav-secondary">
-      <Button onClick={logout}>Logout</Button>
-      <LangSwitcher />
+      <ul>
+        <li>
+          <Button onClick={logout}>Logout</Button>
+        </li>
+        <li>
+          <LangSwitcher />
+        </li>
+      </ul>
     </nav>
   );
 }

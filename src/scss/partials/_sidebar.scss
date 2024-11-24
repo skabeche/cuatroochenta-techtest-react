@@ -36,15 +36,19 @@ aside {
     width: 100dvw;
     height: 100dvh;
     transition: all 0.4s ease;
+    // pointer-events: none;
 
     .wrapper {
       position: absolute;
       z-index: 50;
       right: 0;
       top: 0;
-      padding: 5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 5rem 2rem 2rem 2rem;
       width: 100%;
-      height: 100dvh;
+      height: 100%;
       background-color: #fff;
       transition: all 0.4s ease;
 
@@ -78,6 +82,20 @@ aside {
           }
         }
       }
+
+      .nav-secondary {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @include sm {
+          display: none;
+        }
+      }
+
+      @include sm {
+        justify-content: start;
+      }
     }
   }
 
@@ -92,7 +110,7 @@ aside {
     }
 
     .wrapper {
-      width: 100%;
+      width: 80%;
       transform: translateX(0);
 
       @include md {

@@ -1,17 +1,30 @@
+// Need to import variables and mixins from here, otherwise it won't work from main.scss (need further investigation).
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
 .auth-layout {
   .top-bar {
     display: flex;
     justify-content: flex-start;
     color: #fff;
+    background-color: $primary-color;
 
     nav {
-      display: flex;
-      justify-content: flex-end;
-      width: 100%;
+      display: none;
+
+      @include sm {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+      }
     }
 
     button {
       color: #fff;
+    }
+
+    select {
+      border: none;
     }
   }
 }
