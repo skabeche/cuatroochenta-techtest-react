@@ -23,7 +23,7 @@ i18n
     lng: 'en', // Only necessary if you want to override the auto-detected locale.
     fallbackLng: 'en',
     supportedLngs: Object.keys(supportedLngs),
-    debug: true,
+    // debug: true,
     interpolation: {
       escapeValue: false, // Not needed for react as it escapes by default.
     },

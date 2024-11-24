@@ -17,6 +17,15 @@
       "title": "Contacto"
     }
   },
+  "navs": {
+    "primary": {
+      "dashboard": "Inicio",
+      "contact": "Contacto"
+    },
+    "secondary": {
+      "logout": "Cerrar sesión"
+    }
+  },
   "forms": {
     "label": {
       "username": "Usuario",

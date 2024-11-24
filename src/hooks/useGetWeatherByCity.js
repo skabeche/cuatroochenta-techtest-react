@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 // import apiWeatherResults from '../mockups/api-weather-results.json'
 
-export function useGetWeatherByCity(city = '') {
+export function useGetWeatherByCity(city = '', language = 'en') {
   const [weatherByCity, setWeatherByCity] = useState(null)
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -17,7 +17,7 @@ export function useGetWeatherByCity(city = '') {
     setError(null);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_WEATHER_BASE_URL}?q=${city}&units=metric&appid=${import.meta.env.VITE_API_WEATHER_KEY}`);
+      const response = await fetch(`${import.meta.env.VITE_API_WEATHER_BASE_URL}?q=${city}&units=metric&appid=${import.meta.env.VITE_API_WEATHER_KEY}&lang=${language}`);
       if (!response.ok) {
         throw new Error(`Error: ${response.statusText}`);
       }

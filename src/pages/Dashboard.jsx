@@ -12,7 +12,7 @@ export default function Dashboard() {
   const [city, setCity] = useState('');
   const [ciyAnim, setCityAnim] = useState('');
   const weatherRef = useRef(null);
-  const { weatherByCity, getWeatherByCity, isLoading, error } = useGetWeatherByCity(city);
+  const { weatherByCity, getWeatherByCity, isLoading, error } = useGetWeatherByCity(city, i18n.language);
   const cities = ['Belfast', 'Valencia', 'Doha', 'Reykjavik'];
 
   const weatherType = (() => {
