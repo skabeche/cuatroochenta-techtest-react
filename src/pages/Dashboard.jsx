@@ -77,13 +77,7 @@ export default function Dashboard() {
           )}
         </div>
       </section>
-      {/* <div className={`loader-overlay ${isLoading ? 'open' : 'closed'}`}><span className="loader">Loading weather</span></div> */}
       <LoaderOverlay isLoading={isLoading}>Loading weather</LoaderOverlay>
-      {/* {isLoading &&  (
-        
-        <div className={`loading-overlay ${isLoading ? 'open' : 'closed'}`}><div>Loading weather</div></div>
-        
-      )} */}
     </div>
   )
 }

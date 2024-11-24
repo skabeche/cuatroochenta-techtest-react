@@ -5,6 +5,10 @@
   overflow: hidden;
   background: url("/images/bg-couple-stars.jpg") no-repeat center/cover;
 
+  .dashboard {
+    position: relative;
+  }
+
   .top-bar {
     position: absolute;
     left: 0;
