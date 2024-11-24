@@ -32,14 +32,19 @@ export default function Login() {
   }
 
   useGSAP(() => {
-    gsap.from(loginRef.current,
-      {
-        opacity: 0,
-        xPercent: -50,
-        duration: .6,
-        ease: "power3"
-      }
-    );
+    const mm = gsap.matchMedia();
+
+    // Only desktop.
+    mm.add("(min-width: 768px)", () => {
+      gsap.from(loginRef.current,
+        {
+          opacity: 0,
+          xPercent: -100,
+          duration: .8,
+          ease: "power3"
+        }
+      );
+    });
   }, []);
 
   return (
