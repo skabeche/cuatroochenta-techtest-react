@@ -7,7 +7,7 @@ import AuthLayout from "@/layouts/AuthLayout";
 import Login from "@/pages/Login";
 import Dashboard from "@/pages/Dashboard";
 import Contact from "@/pages/Contact";
-import PrivateRoute from "@/components/PrivateRoute";
+import AuthRoute from "@/components/AuthRoute";
 
 const routes = [
   {
@@ -28,7 +28,7 @@ const routes = [
     ],
   },
   {
-    element: <PrivateRoute><AuthLayout /></PrivateRoute>,
+    element: <AuthRoute><AuthLayout /></AuthRoute>,
     errorElement: <Error />,
     children: [
       {

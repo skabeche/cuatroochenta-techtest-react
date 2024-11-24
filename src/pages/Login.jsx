@@ -57,11 +57,11 @@ export default function Login() {
         <form onSubmit={handleSubmit}>
           <div>
             <Label htmlFor="username">{t("forms.label.username")}</Label>
-            <Input id="username" name="username" type="text" handleChange={handleChange} required />
+            <Input id="username" name="username" type="text" onChange={handleChange} required />
           </div>
           <div>
             <Label htmlFor="password">{t("forms.label.password")}</Label>
-            <Input id="password" name="password" type="password" handleChange={handleChange} required />
+            <Input id="password" name="password" type="password" onChange={handleChange} required />
           </div>
           <Button isLoading={isLoading} className="btn-primary">
             {isLoading ? t("forms.button.validating") : t("forms.button.login")}

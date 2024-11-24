@@ -16,7 +16,7 @@ export default function useAuth() {
 
     //   if (token) {
     //     try {
-          // const response = await fetch(`${import.meta.env.VITE_API_AUTH_BASE_URL}/me`, {
+    //       const response = await fetch(`${import.meta.env.VITE_API_AUTH_BASE_URL}/me`, {
     //         headers: {
     //           Authorization: `Bearer ${token}`,
     //         },
@@ -30,7 +30,6 @@ export default function useAuth() {
     //       const { username } = data;
 
     //       console.log(username)
-    //       userCurrentRef.current = username;
     //       setUser(username);
 
     //     } catch (error) {
@@ -59,7 +58,7 @@ export default function useAuth() {
 
     // Using dummy json for authentication through https://dummyjson.com/docs/auth
     // try {
-      // const response = await fetch(`${import.meta.env.VITE_API_AUTH_BASE_URL}/login`, {
+    //   const response = await fetch(`${import.meta.env.VITE_API_AUTH_BASE_URL}/login`, {
     //     method: "POST",
     //     headers: {
     //       "Content-Type": "application/json",

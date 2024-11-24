@@ -7,8 +7,9 @@ export default function useRequireAuth() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Variable user is null after navigation, needs further investigation.
+    // console.log(user);
     if (!user) {
-      // Variable user is null after navigation, needs further investigation.
       // navigate("/login");
     }
   }, [user, navigate]);
