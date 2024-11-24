@@ -32,7 +32,6 @@
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 40;
     width: 100dvw;
     height: 100dvh;
     transition: all 0.4s ease;
@@ -123,6 +122,7 @@
     .underlay {
       background-color: rgba(0, 0, 0, 0);
       backdrop-filter: blur(0);
+      pointer-events: none;
 
       .wrapper {
         transform: translateX(100%);
