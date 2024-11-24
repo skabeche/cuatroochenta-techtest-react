@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import Error from "@/pages/Error";
+import NotFound from "@/pages/NotFound";
 import GuestLayout from "@/layouts/GuestLayout";
 import AuthLayout from "@/layouts/AuthLayout";
 import Login from "@/pages/Login";
@@ -41,6 +42,11 @@ const routes = [
         handle: { pageCssClass: "page-contact" },
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+    handle: { pageCssClass: "page-notfound" },
   },
 ];
 
