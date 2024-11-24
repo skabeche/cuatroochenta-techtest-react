@@ -10,7 +10,9 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    city: '',
+    telephone: '',
+    dateOfBirth: ''
   });
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false)
@@ -19,22 +21,36 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const isFormFilled = () => {
+    return Object.values(formData).every((field) => field.trim() !== '');
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
+    console.log(formData);
+
     // Simulate a delay to mimic an email being sent.
     try {
+      if (!isFormFilled()) {
+        throw new Error('Please fill in all the required fields.');
+      }
       setTimeout(() => {
         setIsLoading(false);
         setMessage(`Email sent successfully to ${formData.email}`);
-      }, 2000);
+      }, 1000);
     } catch (error) {
-      setMessage('Failed sending the form, please try again.');
+      setIsLoading(false);
+      setMessage(error.message);
     }
 
     // Example: emulate an API endpoint to send the form data to the API.
     // try {
+    //   if (!isFormFilled()) {
+    //     throw new Error('Please fill in all the required fields.');
+    //   }
+
     //   const response = await fetch('https://apidomain.com//api/contact', {
     //     method: 'POST',
     //     headers: {
@@ -57,6 +73,7 @@ export default function Contact() {
     // } finally {
     //   setIsLoading(false);
     // }
+
   };
 
   return (
@@ -80,14 +97,14 @@ export default function Contact() {
             </div>
             <div className="">
               <Label htmlFor="telephone">{t("forms.label.telephone")}</Label>
-              <Input name="telephone" onChange={handleChange} />
+              <Input name="telephone" onChange={handleChange} required />
             </div>
             <div className="">
               <Label htmlFor="dateOfBirth">{t("forms.label.dateOfBirth")}</Label>
-              <Input type="date" name="dateOfBirth" onChange={handleChange} />
+              <Input type="date" name="dateOfBirth" onChange={handleChange} required />
             </div>
           </div>
-          <Button isLoading={isLoading} className="btn-primary">
+          <Button isLoading={isLoading} disabled={!isFormFilled()} className="btn-primary">
             {isLoading ? t("forms.button.sending") : t("forms.button.send")}
           </Button>
           <div className="message">{message}</div>

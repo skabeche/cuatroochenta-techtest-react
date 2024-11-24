@@ -7,3 +7,10 @@ label {
   font-weight: 500;
   font-size: 0.9rem;
 }
+
+// Previous sibling: add * to label if input is required
+label:has(+ input[required])::after {
+  content: "*";
+  margin-left: 3px;
+  color: #ff0000;
+}
