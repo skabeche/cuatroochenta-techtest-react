@@ -6,7 +6,7 @@ import Button from "@/components/Button";
 import Label from "@/components/Label";
 import Input from "@/components/Input";
 import { SunMedium } from "lucide-react";
-import useAuth from "@/hooks/useAuth";
+import AuthService from "@/services/AuthService";
 
 export default function Login() {
   const { t, i18n } = useTranslation();
@@ -14,7 +14,7 @@ export default function Login() {
     username: '',
     password: '',
   });
-  const { login, isLoading, message } = useAuth();
+  const { login, isLoading, message } = AuthService();
   const loginRef = useRef(null);
 
   const handleChange = (e) => {

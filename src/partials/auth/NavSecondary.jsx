@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import LangSwitcher from "@/partials/LangSwitcher";
 import Button from "@/components/Button";
-import useAuth from "@/hooks/useAuth";
+import AuthService from "@/services/AuthService";
 
 export default function NavSecondary() {
   const { t, i18n } = useTranslation();
-  const { logout } = useAuth();
+  const { logout } = AuthService();
 
   return (
     <nav className="nav-secondary">
