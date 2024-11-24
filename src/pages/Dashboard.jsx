@@ -13,9 +13,10 @@ export default function Dashboard() {
   const [ciyAnim, setCityAnim] = useState('');
   const weatherRef = useRef(null);
   const { weatherByCity, getWeatherByCity, isLoading, error } = useGetWeatherByCity(city, i18n.language);
-  const cities = ['Belfast', 'Valencia', 'Doha', 'Reykjavik'];
+  const cities = ['Belfast', 'Valencia', 'Doha', 'Reykjavik', 'Buenos Aires'];
 
-  const weatherType = (() => {
+  const weatherCondition = (() => {
+    if (weatherByCity?.main?.tempCurrent <= 0) return 'freezing';
     if (weatherByCity?.main?.tempCurrent <= 10) return 'cold';
     if (weatherByCity?.main?.tempCurrent >= 25) return 'hot';
     return 'normal';
@@ -57,7 +58,7 @@ export default function Dashboard() {
       <Sidebar>
         <NavCities cities={cities} isLoading={isLoading} handleClick={handleClick} />
       </Sidebar>
-      <section ref={weatherRef} className={`weather ${weatherType}`}>
+      <section ref={weatherRef} className={`weather ${weatherCondition}`}>
         <div className="content">
           {city === '' ? (
             <p>{t("translation:pages.dashboard.text")}</p>

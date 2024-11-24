@@ -38,6 +38,10 @@
       background-color: rgba(0, 0, 0, 0.3);
     }
 
+    &.freezing {
+      background-image: url("/images/bg-freezing-weather.jpg");
+    }
+
     &.cold {
       background-image: url("/images/bg-cold-weather.jpg");
     }
