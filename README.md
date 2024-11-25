@@ -1,8 +1,27 @@
-# React + Vite
+# 480 Tech Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+A technical test that involves creating a small website programmed with React that, after logging in, queries a weather service and displays the result in the language selected by the user.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It uses Vite under the hood.
+
+## Installation
+
+Use `npm` to install all dependencies.
+
+`npm install`
+
+## Development
+
+Run development server.
+
+`npm run dev`
+
+## Production
+
+Build before deploying (not needed if it is hosted in a platform like Vercel).
+
+`npm run build`
+
+The build is in `dist` folder.
