@@ -47,8 +47,11 @@
   },
   "widgets": {
     "weather": {
-      "tempMin": "Min.",
-      "tempMax": "Max."
+      "data": {
+        "tempMin": "Min.",
+        "tempMax": "Máx."
+      },
+      "loader": "Loading weather"
     }
   }
 }

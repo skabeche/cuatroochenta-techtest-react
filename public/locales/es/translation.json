@@ -47,8 +47,11 @@
   },
   "widgets": {
     "weather": {
-      "tempMin": "Min.",
-      "tempMax": "Máx."
+      "data": {
+        "tempMin": "Min.",
+        "tempMax": "Máx."
+      },
+      "loader": "Obteniendo clima"
     }
   }
 }
