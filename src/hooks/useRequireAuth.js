@@ -1,19 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "@/services/AuthService";
 
 export default function useRequireAuth() {
-  const { user } = AuthService();
+  const [user, setUser] = useState(null);
+  const { fetchUser, logout } = AuthService();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Variable user is null after navigation, needs further investigation.
-    console.log(user);
-    if (!user) {
-      navigate("/login");
-    }
-  }, [user, navigate]);
+    const getUser = async () => await fetchUser();
+    const userAuth = getUser().then((user) => {
+      if (!user) {
+        setUser(null);
+        logout();
+      }
+
+      setUser(user);
+    });
+  }, [navigate]);
 
   return user;
 };
-
