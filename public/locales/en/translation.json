@@ -53,5 +53,19 @@
       },
       "loader": "Loading weather"
     }
+  },
+  "messages": {
+    "auth": {
+      "failedFetchUser": "Failed to fetch user",
+      "invalidCredentials": "Invalid credentials"
+    },
+    "weather": {
+      "failedFetchWeather": "Error getting weather"
+    },
+    "contact": {
+      "formFilled": "Please fill in all the required fields",
+      "success": "Email sent successfully to",
+      "error": "Failed to send email"
+    }
   }
 }

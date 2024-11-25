@@ -34,21 +34,22 @@ export default function Contact() {
     // Simulate a delay to mimic an email being sent.
     try {
       if (!isFormFilled()) {
-        throw new Error('Please fill in all the required fields.');
+        throw new Error(t('messages.contact.formFilled'));
       }
       setTimeout(() => {
         setIsLoading(false);
-        setMessage(`Email sent successfully to ${formData.email}`);
+        setMessage(`${t('messages.contact.success')} ${formData.email}`);
       }, 1000);
     } catch (error) {
-      setIsLoading(false);
-      setMessage(error.message);
+      setMessage(`${t('messages.contact.error')}: ${error.message}`);
+    } finally {
+      // setIsLoading(false);
     }
 
     // Example: emulate an API endpoint to send the form data to the API.
     // try {
     //   if (!isFormFilled()) {
-    //     throw new Error('Please fill in all the required fields.');
+    //     throw new Error(t('messages.contact.formFilled'));
     //   }
 
     //   const response = await fetch('https://apidomain.com//api/contact', {
@@ -65,10 +66,9 @@ export default function Contact() {
     //   }
 
     //   const data = await response.json();
-    //   console.log('Email sent successfully:', data);
-    //   setMessage(`Email sent successfully to ${formData.email}`);
+    //   setMessage(`${t('messages.contact.success')} ${formData.email}`);
     // } catch (error) {
-    //   console.error('Failed to send email:', error.message);
+    //   setMessage(`${t('messages.contact.error')}: ${error.message}`);
     //   setMessage(error.message);
     // } finally {
     //   setIsLoading(false);

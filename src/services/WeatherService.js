@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import ApiAdapter from "@/adapters/apiAdapter";
 import WeatherRepository from "@/repositories/WeatherRepository";
 
@@ -7,6 +8,7 @@ const weatherRepository = new WeatherRepository(apiAdapter);
 const APP_KEY = import.meta.env.VITE_API_WEATHER_KEY;
 
 export default function WeatherService() {
+  const { t, i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -18,7 +20,7 @@ export default function WeatherService() {
       const response = await weatherRepository.getWeatherByCity(APP_KEY, city, language, units);
 
       if (!response.id) {
-        throw new Error(`Error getting weather: ${response.statusText}`);
+        throw new Error(`${t("messages.weather.failedFetchWeather")}: ${response.statusText}`);
       }
 
       // Mapping data to the desired format.

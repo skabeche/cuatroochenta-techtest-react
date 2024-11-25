@@ -53,5 +53,19 @@
       },
       "loader": "Obteniendo clima"
     }
+  },
+  "messages": {
+    "auth": {
+      "failedFetchUser": "No se ha podido obtener el usuario",
+      "invalidCredentials": "Credenciales inválidas"
+    },
+    "weather": {
+      "failedFetchWeather": "No se ha podido obtener el clima"
+    },
+    "contact": {
+      "formFilled": "Por favor, rellena todos los campos",
+      "success": "Email enviado correctamente a",
+      "error": "No se ha podido enviar el email"
+    }
   }
 }

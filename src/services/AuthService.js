@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ApiAdapter from "@/adapters/apiAdapter";
 import AuthRepository from "@/repositories/AuthRepository";
 
@@ -7,6 +8,7 @@ const apiAdapter = new ApiAdapter(import.meta.env.VITE_API_AUTH_BASE_URL);
 const authRepository = new AuthRepository(apiAdapter);
 
 export default function AuthService() {
+  const { t, i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ export default function AuthService() {
         const response = await authRepository.getUserByToken(token);
 
         if (!response.id) {
-          throw new Error("Failed to fetch user");
+          throw new Error(t("messages.auth.failedFetchUser"));
         }
 
         user = response;
@@ -42,7 +44,7 @@ export default function AuthService() {
       const response = await authRepository.login(username, password);
 
       if (!response.accessToken) {
-        throw new Error("Invalid credentials");
+        throw new Error(t("messages.auth.invalidCredentials"));
       }
 
       localStorage.setItem("authToken", response.accessToken);
