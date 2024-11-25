@@ -1,6 +1,8 @@
-class WeatherRepository {
+import BaseRepository from "./BaseRepository";
+
+class WeatherRepository extends BaseRepository {
   constructor(apiAdapter) {
-    this.apiAdapter = apiAdapter;
+    super(apiAdapter);
   }
 
   async getWeatherByCity(appKey, city, language, units) {

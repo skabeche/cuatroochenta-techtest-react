@@ -1,6 +1,8 @@
-class AuthRepository {
+import BaseRepository from "./BaseRepository";
+
+class AuthRepository extends BaseRepository {
   constructor(apiAdapter) {
-    this.apiAdapter = apiAdapter;
+    super(apiAdapter);
   }
 
   async login(username, password) {
