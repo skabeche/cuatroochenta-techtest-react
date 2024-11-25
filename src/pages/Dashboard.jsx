@@ -1,19 +1,30 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useTranslation } from "react-i18next";
 import Sidebar from "@/partials/Sidebar";
 import NavCities from "@/partials/NavCities";
 import LoaderOverlay from "@/components/LoaderOverlay";
-import { useGetWeatherByCity } from "@/hooks/useGetWeatherByCity"
+import WeatherService from "@/services/WeatherService";
 
 export default function Dashboard() {
   const { t, i18n } = useTranslation(['translation']);
   const [city, setCity] = useState('');
+  const [weatherByCity, setWeatherByCity] = useState('');
   const [ciyAnim, setCityAnim] = useState('');
   const weatherRef = useRef(null);
-  const { weatherByCity, getWeatherByCity, isLoading, error } = useGetWeatherByCity(city, i18n.language);
+  const { fetchWeatherByCity, isLoading, message } = WeatherService();
   const cities = ['Belfast', 'Valencia', 'Doha', 'Reykjavik', 'Buenos Aires'];
+
+  useEffect(() => {
+    if (city === '') return
+
+    const getWeatherByCity = async () => await fetchWeatherByCity(city, i18n.language);
+    const weatherByCity = getWeatherByCity().then((weather) => {
+      setWeatherByCity(weather);
+    });
+
+  }, [city]);
 
   const weatherCondition = (() => {
     if (weatherByCity?.main?.tempCurrent <= 0) return 'freezing';
